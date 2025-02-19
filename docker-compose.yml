@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: phptodo-app
+    container_name: php-form-oop-app
     ports:
         - "8000:80"
     volumes:
