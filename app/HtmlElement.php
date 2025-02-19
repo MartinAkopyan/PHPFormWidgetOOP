@@ -4,5 +4,5 @@ namespace App;
 
 abstract class HtmlElement
 {
-    abstract public function render();
+    abstract public function render(): string;
 }

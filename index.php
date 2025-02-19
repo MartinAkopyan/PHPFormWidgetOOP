@@ -2,9 +2,16 @@
 
 require_once 'vendor/autoload.php';
 
+use App\Button;
 use App\Form;
+use App\PasswordInput;
+use App\TextInput;
 
-$form = new Form('POST', '');
+$form = new Form('POST', '/test.php');
+$form->addElement(new TextInput('firstname', 'First name'));
+$form->addElement(new TextInput('email', 'Email'));
+$form->addElement(new PasswordInput('password', 'Password'));
+$form->addElement(new Button("Submit"));
 ?>
 
 <!doctype html>

@@ -18,15 +18,21 @@ class Form extends HtmlElement
         $this->action = $action;
     }
 
-    public function addElement(HtmlElement $element)
+    public function addElement(HtmlElement $element): void
     {
-        
+        $this->elements[] = $element;
     }
 
     public function render(): string
     {
         $content = implode(PHP_EOL, array_map(fn($element) => $element->render(), $this->elements));
-        return sprintf('<form action="%s" method="%s">%s</form>', $this->action, $this->method, $content);
 
+        return sprintf(
+            '<form action="%s" method="%s">%s</form>',
+            htmlspecialchars($this->action, ENT_QUOTES, 'UTF-8'),
+            htmlspecialchars($this->method, ENT_QUOTES, 'UTF-8'),
+            $content
+        );
     }
+
 }
